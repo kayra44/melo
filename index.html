@@ -8,923 +8,922 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#0c0c0d;
-    --ink:#f3efe6;
-    --ink-dim:#9b968c;
-    --wood-1:#4a3222;
-    --wood-2:#241609;
-    --line:#2a2824;
-    --accent:#d98a5f;
-    --accent-ink:#1c1108;
-    --panel:#16140f;
-    --panel-2:#0f0e0b;
-    --panel-border:#2b2822;
-    --danger:#e07a6b;
-    --shadow: 0 24px 50px rgba(0,0,0,.55);
-    --serif: 'Fraunces', Georgia, serif;
-    --sans: 'Work Sans', -apple-system, sans-serif;
-  }
+  :root{
+    --bg:#0c0c0d;
+    --ink:#f3efe6;
+    --ink-dim:#9b968c;
+    --wood-1:#4a3222;
+    --wood-2:#241609;
+    --line:#2a2824;
+    --accent:#d98a5f;
+    --accent-ink:#1c1108;
+    --panel:#16140f;
+    --panel-2:#0f0e0b;
+    --panel-border:#2b2822;
+    --danger:#e07a6b;
+    --shadow: 0 24px 50px rgba(0,0,0,.55);
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Work Sans', -apple-system, sans-serif;
+  }
 
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
-  body{
-    background: radial-gradient(ellipse 900px 500px at 50% -8%, #1c1710 0%, var(--bg) 60%);
-    color: var(--ink);
-    font-family: var(--sans);
-    min-height:100vh;
-    -webkit-font-smoothing:antialiased;
-  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background: radial-gradient(ellipse 900px 500px at 50% -8%, #1c1710 0%, var(--bg) 60%);
+    color: var(--ink);
+    font-family: var(--sans);
+    min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+  }
 
-  .app{ max-width: 1040px; margin: 0 auto; padding: 28px 20px 90px; }
+  .app{ max-width: 1040px; margin: 0 auto; padding: 28px 20px 90px; }
 
-  /* ---------- header ---------- */
-  .topbar{
-    display:flex; align-items:flex-start; justify-content:space-between; gap:18px;
-    padding-bottom: 22px; margin-bottom: 30px; border-bottom: 1px solid var(--line);
-    flex-wrap:wrap;
-  }
-  .brand{ display:flex; align-items:center; gap:12px; min-width:0; }
-  .brand svg{ flex-shrink:0; }
-  .brand-text{ min-width:0; }
-  h1#siteTitle{
-    font: 600 1.7rem/1.15 var(--serif); margin:0; letter-spacing:.005em;
-    outline:none; border-bottom:1px dashed transparent; cursor:text;
-  }
-  h1#siteTitle:hover, h1#siteTitle:focus{ border-bottom-color: var(--panel-border); }
-  .stat-line{ font-size:.85rem; color:var(--ink-dim); margin-top:4px; }
+  /* ---------- header ---------- */
+  .topbar{
+    display:flex; align-items:flex-start; justify-content:space-between; gap:18px;
+    padding-bottom: 22px; margin-bottom: 30px; border-bottom: 1px solid var(--line);
+    flex-wrap:wrap;
+  }
+  .brand{ display:flex; align-items:center; gap:12px; min-width:0; }
+  .brand svg{ flex-shrink:0; }
+  .brand-text{ min-width:0; }
+  h1#siteTitle{
+    font: 600 1.7rem/1.15 var(--serif); margin:0; letter-spacing:.005em;
+    outline:none; border-bottom:1px dashed transparent; cursor:text;
+  }
+  h1#siteTitle:hover, h1#siteTitle:focus{ border-bottom-color: var(--panel-border); }
+  .stat-line{ font-size:.85rem; color:var(--ink-dim); margin-top:4px; }
 
-  .btn-outline{
-    border:1px solid var(--panel-border); color:var(--ink); background:transparent;
-    padding:.6rem 1.05rem; border-radius:999px; font:500 .85rem/1 var(--sans);
-    cursor:pointer; transition: border-color .15s, background .15s; white-space:nowrap;
-  }
-  .btn-outline:hover{ border-color: var(--accent); background:rgba(217,138,95,.08); }
+  .btn-outline{
+    border:1px solid var(--panel-border); color:var(--ink); background:transparent;
+    padding:.6rem 1.05rem; border-radius:999px; font:500 .85rem/1 var(--sans);
+    cursor:pointer; transition: border-color .15s, background .15s; white-space:nowrap;
+  }
+  .btn-outline:hover{ border-color: var(--accent); background:rgba(217,138,95,.08); }
 
-  /* ---------- shelves ---------- */
-  .shelf{ margin-bottom: 46px; }
-  .shelf-head{
-    display:flex; align-items:baseline; gap:12px; margin-bottom:14px; padding:0 2px;
-  }
-  .shelf-label{
-    font:500 1.15rem/1 var(--serif); font-style:italic; color: var(--ink);
-    outline:none; border-bottom:1px dashed transparent; cursor:text; min-width: 2ch;
-  }
-  .shelf-label:hover, .shelf-label:focus{ border-bottom-color: var(--panel-border); }
-  .shelf-count{ font-size:.78rem; color:var(--ink-dim); }
-  .shelf-delete{
-    margin-left:auto; background:none; border:none; color:var(--ink-dim);
-    font-size:.78rem; cursor:pointer; font-family:var(--sans); padding:2px 6px;
-  }
-  .shelf-delete:hover{ color: var(--danger); }
+  /* ---------- shelves ---------- */
+  .shelf{ margin-bottom: 46px; }
+  .shelf-head{
+    display:flex; align-items:baseline; gap:12px; margin-bottom:14px; padding:0 2px;
+  }
+  .shelf-label{
+    font:500 1.15rem/1 var(--serif); font-style:italic; color: var(--ink);
+    outline:none; border-bottom:1px dashed transparent; cursor:text; min-width: 2ch;
+  }
+  .shelf-label:hover, .shelf-label:focus{ border-bottom-color: var(--panel-border); }
+  .shelf-count{ font-size:.78rem; color:var(--ink-dim); }
+  .shelf-delete{
+    margin-left:auto; background:none; border:none; color:var(--ink-dim);
+    font-size:.78rem; cursor:pointer; font-family:var(--sans); padding:2px 6px;
+  }
+  .shelf-delete:hover{ color: var(--danger); }
 
-  .shelf-row{
-    display:flex; align-items:flex-end; gap:3px; padding: 0 6px 0 4px;
-    overflow-x:auto; overflow-y:hidden; scrollbar-width:thin;
-    min-height: 100px;
-  }
-  .shelf-row::-webkit-scrollbar{ height:6px; }
-  .shelf-row::-webkit-scrollbar-thumb{ background:var(--panel-border); border-radius:6px; }
+  .shelf-row{
+    display:flex; align-items:flex-end; gap:3px; padding: 0 6px 0 4px;
+    overflow-x:auto; overflow-y:hidden; scrollbar-width:thin;
+    min-height: 100px;
+  }
+  .shelf-row::-webkit-scrollbar{ height:6px; }
+  .shelf-row::-webkit-scrollbar-thumb{ background:var(--panel-border); border-radius:6px; }
 
-  .shelf-plank{
-    height:15px; margin: 0 2px;
-    background: linear-gradient(180deg, var(--wood-1), var(--wood-2));
-    border-radius: 3px;
-    box-shadow: 0 10px 20px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.06);
-    position:relative;
-  }
+  .shelf-plank{
+    height:15px; margin: 0 2px;
+    background: linear-gradient(180deg, var(--wood-1), var(--wood-2));
+    border-radius: 3px;
+    box-shadow: 0 10px 20px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.06);
+    position:relative;
+  }
 
-  .spine{
-    flex-shrink:0;
-    width: var(--w, 42px);
-    height: var(--h, 260px);
-    background: var(--c, #333);
-    color: var(--t, #fff);
-    border-radius: 3px 3px 0 0;
-    box-shadow: inset -8px 0 16px rgba(0,0,0,.18), inset 2px 0 0 rgba(255,255,255,.06), 2px 4px 10px rgba(0,0,0,.35);
-    display:flex; align-items:center; justify-content:center;
-    cursor:pointer; position:relative;
-    transition: transform .18s ease, box-shadow .18s ease;
-    opacity:0; transform: translateY(10px);
-    animation: settle .5s ease forwards;
-  }
-  .spine:hover{ transform: translateY(-8px); }
-  @keyframes settle{ to{ opacity:1; transform:translateY(0); } }
+  .spine{
+    flex-shrink:0;
+    width: var(--w, 42px);
+    height: var(--h, 260px);
+    background: var(--c, #333);
+    color: var(--t, #fff);
+    border-radius: 3px 3px 0 0;
+    box-shadow: inset -8px 0 16px rgba(0,0,0,.18), inset 2px 0 0 rgba(255,255,255,.06), 2px 4px 10px rgba(0,0,0,.35);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer; position:relative;
+    transition: transform .18s ease, box-shadow .18s ease;
+    opacity:0; transform: translateY(10px);
+    animation: settle .5s ease forwards;
+  }
+  .spine:hover{ transform: translateY(-8px); }
+  @keyframes settle{ to{ opacity:1; transform:translateY(0); } }
 
-  .spine-title{
-    writing-mode: vertical-rl; transform: rotate(180deg);
-    white-space:nowrap; padding: 12px 0; letter-spacing:.02em;
-    max-height: calc(100% - 16px);
-    text-align:center;
-  }
+  .spine-title{
+    writing-mode: vertical-rl; transform: rotate(180deg);
+    white-space:nowrap; padding: 12px 0; letter-spacing:.02em;
+    max-height: calc(100% - 16px);
+    text-align:center;
+  }
 
-  .add-spine{
-    flex-shrink:0; width:40px; height:150px;
-    border:1.5px dashed var(--panel-border); border-radius:3px 3px 0 0;
-    background:transparent; color:var(--ink-dim);
-    display:flex; align-items:center; justify-content:center;
-    font-size:1.4rem; cursor:pointer; align-self:flex-end;
-    transition: border-color .15s, color .15s;
-  }
-  .add-spine:hover{ border-color:var(--accent); color:var(--accent); }
+  .add-spine{
+    flex-shrink:0; width:40px; height:150px;
+    border:1.5px dashed var(--panel-border); border-radius:3px 3px 0 0;
+    background:transparent; color:var(--ink-dim);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.4rem; cursor:pointer; align-self:flex-end;
+    transition: border-color .15s, color .15s;
+  }
+  .add-spine:hover{ border-color:var(--accent); color:var(--accent); }
 
-  .empty-state{
-    text-align:center; padding: 70px 20px; color:var(--ink-dim);
-    border:1px dashed var(--panel-border); border-radius:14px;
-  }
-  .empty-state h2{ font:500 1.3rem var(--serif); font-style:italic; color:var(--ink); margin:0 0 8px; }
-  .empty-state p{ margin:0 0 20px; font-size:.9rem; }
+  .empty-state{
+    text-align:center; padding: 70px 20px; color:var(--ink-dim);
+    border:1px dashed var(--panel-border); border-radius:14px;
+  }
+  .empty-state h2{ font:500 1.3rem var(--serif); font-style:italic; color:var(--ink); margin:0 0 8px; }
+  .empty-state p{ margin:0 0 20px; font-size:.9rem; }
 
-  .add-shelf-tile{
-    width:100%; margin-top: 8px;
-    border:1.5px dashed var(--panel-border); border-radius:12px;
-    background:transparent; color:var(--ink-dim); padding: 16px;
-    font: 500 .9rem var(--sans); cursor:pointer;
-    transition: border-color .15s, color .15s;
-  }
-  .add-shelf-tile:hover{ border-color:var(--accent); color:var(--accent); }
+  .add-shelf-tile{
+    width:100%; margin-top: 8px;
+    border:1.5px dashed var(--panel-border); border-radius:12px;
+    background:transparent; color:var(--ink-dim); padding: 16px;
+    font: 500 .9rem var(--sans); cursor:pointer;
+    transition: border-color .15s, color .15s;
+  }
+  .add-shelf-tile:hover{ border-color:var(--accent); color:var(--accent); }
 
-  /* ---------- overlay / modal ---------- */
-  .overlay{
-    position:fixed; inset:0; background:rgba(6,5,4,.68);
-    backdrop-filter: blur(3px);
-    display:flex; align-items:center; justify-content:center;
-    padding: 20px; z-index:60;
-  }
-  .overlay[hidden]{ display:none; }
-  .modal{
-    background: var(--panel); border:1px solid var(--panel-border); border-radius:16px;
-    width:min(440px, 100%); max-height:88vh; overflow-y:auto;
-    padding: 26px; box-shadow: var(--shadow);
-  }
-  .modal h3{ font:600 1.25rem var(--serif); margin:0 0 4px; }
-  .modal .sub{ color:var(--ink-dim); font-size:.85rem; margin:0 0 18px; }
+  /* ---------- overlay / modal ---------- */
+  .overlay{
+    position:fixed; inset:0; background:rgba(6,5,4,.68);
+    backdrop-filter: blur(3px);
+    display:flex; align-items:center; justify-content:center;
+    padding: 20px; z-index:60;
+  }
+  .overlay[hidden]{ display:none; }
+  .modal{
+    background: var(--panel); border:1px solid var(--panel-border); border-radius:16px;
+    width:min(440px, 100%); max-height:88vh; overflow-y:auto;
+    padding: 26px; box-shadow: var(--shadow);
+  }
+  .modal h3{ font:600 1.25rem var(--serif); margin:0 0 4px; }
+  .modal .sub{ color:var(--ink-dim); font-size:.85rem; margin:0 0 18px; }
 
-  label{ display:block; font-size:.78rem; color:var(--ink-dim); margin-bottom:6px; }
-  input[type=text], textarea, select{
-    width:100%; background:var(--panel-2); border:1px solid var(--panel-border);
-    border-radius:8px; padding:.65rem .75rem; color:var(--ink);
-    font: .95rem var(--sans); margin-bottom:16px;
-  }
-  input[type=text]:focus, textarea:focus, select:focus{ outline:1px solid var(--accent); }
-  textarea{ min-height:80px; resize:vertical; }
+  label{ display:block; font-size:.78rem; color:var(--ink-dim); margin-bottom:6px; }
+  input[type=text], textarea, select{
+    width:100%; background:var(--panel-2); border:1px solid var(--panel-border);
+    border-radius:8px; padding:.65rem .75rem; color:var(--ink);
+    font: .95rem var(--sans); margin-bottom:16px;
+  }
+  input[type=text]:focus, textarea:focus, select:focus{ outline:1px solid var(--accent); }
+  textarea{ min-height:80px; resize:vertical; }
 
-  .swatches{ display:flex; flex-wrap:wrap; gap:9px; margin-bottom:18px; }
-  .swatch{
-    width:30px; height:30px; border-radius:50%; cursor:pointer;
-    border:2px solid transparent; padding:0;
-  }
-  .swatch.selected{ border-color: var(--ink); }
+  .swatches{ display:flex; flex-wrap:wrap; gap:9px; margin-bottom:18px; }
+  .swatch{
+    width:30px; height:30px; border-radius:50%; cursor:pointer;
+    border:2px solid transparent; padding:0;
+  }
+  .swatch.selected{ border-color: var(--ink); }
 
-  .modal-actions{ display:flex; justify-content:flex-end; gap:10px; margin-top:6px; flex-wrap:wrap; }
-  .btn-primary{
-    background: var(--accent); color: var(--accent-ink); border:none;
-    padding:.65rem 1.2rem; border-radius:999px; font:600 .88rem var(--sans); cursor:pointer;
-  }
-  .btn-secondary{
-    background:transparent; border:1px solid var(--panel-border); color:var(--ink);
-    padding:.65rem 1.2rem; border-radius:999px; font:500 .88rem var(--sans); cursor:pointer;
-  }
-  .btn-danger{
-    background:transparent; border:1px solid rgba(224,122,107,.45); color:var(--danger);
-    padding:.65rem 1.2rem; border-radius:999px; font:500 .88rem var(--sans); cursor:pointer;
-  }
+  .modal-actions{ display:flex; justify-content:flex-end; gap:10px; margin-top:6px; flex-wrap:wrap; }
+  .btn-primary{
+    background: var(--accent); color: var(--accent-ink); border:none;
+    padding:.65rem 1.2rem; border-radius:999px; font:600 .88rem var(--sans); cursor:pointer;
+  }
+  .btn-secondary{
+    background:transparent; border:1px solid var(--panel-border); color:var(--ink);
+    padding:.65rem 1.2rem; border-radius:999px; font:500 .88rem var(--sans); cursor:pointer;
+  }
+  .btn-danger{
+    background:transparent; border:1px solid rgba(224,122,107,.45); color:var(--danger);
+    padding:.65rem 1.2rem; border-radius:999px; font:500 .88rem var(--sans); cursor:pointer;
+  }
 
-  .detail-genre{
-    display:inline-block; font-size:.72rem; color:var(--ink-dim);
-    border:1px solid var(--panel-border); border-radius:999px; padding:3px 11px;
-    margin-bottom:14px;
-  }
-  .detail-author{ color:var(--ink-dim); font-style:italic; margin:0 0 16px; font-size:.92rem; }
-  .detail-review{ font-size:.95rem; line-height:1.6; margin:0 0 20px; white-space:pre-wrap; }
-  .detail-review.placeholder{ color:var(--ink-dim); font-style:italic; }
+  .detail-genre{
+    display:inline-block; font-size:.72rem; color:var(--ink-dim);
+    border:1px solid var(--panel-border); border-radius:999px; padding:3px 11px;
+    margin-bottom:14px;
+  }
+  .detail-author{ color:var(--ink-dim); font-style:italic; margin:0 0 16px; font-size:.92rem; }
+  .detail-review{ font-size:.95rem; line-height:1.6; margin:0 0 20px; white-space:pre-wrap; }
+  .detail-review.placeholder{ color:var(--ink-dim); font-style:italic; }
 
-  .year-chips{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
-  .year-chip{
-    border:1px solid var(--panel-border); background:transparent; color:var(--ink);
-    padding:.5rem 1rem; border-radius:999px; font:500 .85rem var(--sans); cursor:pointer;
-  }
-  .year-chip:hover{ border-color:var(--accent); color:var(--accent); }
-  .or-divider{ color:var(--ink-dim); font-size:.78rem; margin: 4px 0 12px; }
+  .year-chips{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
+  .year-chip{
+    border:1px solid var(--panel-border); background:transparent; color:var(--ink);
+    padding:.5rem 1rem; border-radius:999px; font:500 .85rem var(--sans); cursor:pointer;
+  }
+  .year-chip:hover{ border-color:var(--accent); color:var(--accent); }
+  .or-divider{ color:var(--ink-dim); font-size:.78rem; margin: 4px 0 12px; }
 
-  .save-warning{
-    position:fixed; left:50%; bottom:20px; transform:translateX(-50%);
-    background:var(--panel); border:1px solid var(--panel-border); color:var(--ink-dim);
-    font-size:.8rem; padding:10px 16px; border-radius:10px; box-shadow:var(--shadow);
-    max-width: 90vw; z-index:80;
-  }
+  .save-warning{
+    position:fixed; left:50%; bottom:20px; transform:translateX(-50%);
+    background:var(--panel); border:1px solid var(--panel-border); color:var(--ink-dim);
+    font-size:.8rem; padding:10px 16px; border-radius:10px; box-shadow:var(--shadow);
+    max-width: 90vw; z-index:80;
+  }
 
-  @media (max-width: 560px){
-    .topbar{ flex-direction:column; }
-    .btn-outline{ align-self:flex-start; }
-    h1#siteTitle{ font-size:1.4rem; }
-  }
+  @media (max-width: 560px){
+    .topbar{ flex-direction:column; }
+    .btn-outline{ align-self:flex-start; }
+    h1#siteTitle{ font-size:1.4rem; }
+  }
 </style>
 </head>
 <body>
 <div class="app">
 
-  <header class="topbar">
-    <div class="brand">
-      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#f3efe6" stroke-width="1.4">
-        <path d="M2 4.5c2.5-1 5-1.3 8 0v14.5c-3-1.3-5.5-1-8 0V4.5Z"/>
-        <path d="M22 4.5c-2.5-1-5-1.3-8 0v14.5c3-1.3 5.5-1 8 0V4.5Z"/>
-      </svg>
-      <div class="brand-text">
-        <h1 id="siteTitle" contenteditable="true" spellcheck="false">Yaren'in Kitaplığı</h1>
-        <div class="stat-line" id="statLine"></div>
-      </div>
-    </div>
-    <button class="btn-outline" id="addShelfBtn">+ Yeni raf</button>
-  </header>
+  <header class="topbar">
+    <div class="brand">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#f3efe6" stroke-width="1.4">
+        <path d="M2 4.5c2.5-1 5-1.3 8 0v14.5c-3-1.3-5.5-1-8 0V4.5Z"/>
+        <path d="M22 4.5c-2.5-1-5-1.3-8 0v14.5c3-1.3 5.5-1 8 0V4.5Z"/>
+      </svg>
+      <div class="brand-text">
+        <h1 id="siteTitle" contenteditable="true" spellcheck="false">Yaren'in Kitaplığı</h1>
+        <div class="stat-line" id="statLine"></div>
+      </div>
+    </div>
+    <button class="btn-outline" id="addShelfBtn">+ Yeni raf</button>
+  </header>
 
-  <main id="shelvesContainer"></main>
+  <main id="shelvesContainer"></main>
 
-  <button class="add-shelf-tile" id="addShelfTile">+ Yeni raf ekle (ör. bir yıl için)</button>
+  <button class="add-shelf-tile" id="addShelfTile">+ Yeni raf ekle (ör. bir yıl için)</button>
 
 </div>
 
 <!-- Book detail / edit modal -->
 <div class="overlay" id="bookOverlay" hidden>
-  <div class="modal" id="bookModal"></div>
+  <div class="modal" id="bookModal"></div>
 </div>
 
 <!-- Add shelf modal -->
 <div class="overlay" id="shelfOverlay" hidden>
-  <div class="modal" id="shelfModal"></div>
+  <div class="modal" id="shelfModal"></div>
 </div>
 
 <!-- Generic confirm modal -->
 <div class="overlay" id="confirmOverlay" hidden>
-  <div class="modal" id="confirmModal" style="max-width:340px;"></div>
+  <div class="modal" id="confirmModal" style="max-width:340px;"></div>
 </div>
 
 <script>
 (function(){
-  "use strict";
-
-  var PALETTE = [
-    {c:"#7fc8bd", t:"#12302b"},
-    {c:"#8fb8e0", t:"#122236"},
-    {c:"#f4efe3", t:"#2a241a"},
-    {c:"#c9d6d2", t:"#243330"},
-    {c:"#a89f8f", t:"#221f18"},
-    {c:"#5fa8d3", t:"#0f2333"},
-    {c:"#2f7d78", t:"#eaf4f2"},
-    {c:"#e8b23a", t:"#2a1d05"},
-    {c:"#c1694f", t:"#2c1108"},
-    {c:"#e8b4b8", t:"#2c1418"},
-    {c:"#33363a", t:"#e9e8e6"},
-    {c:"#7a9471", t:"#1a2416"}
-  ];
-
-  var GENRES = ["Roman","Deneme","Şiir","Psikoloji","Kişisel Gelişim","Distopya","Biyografi",
-    "Öykü","Felsefe","Sanat & Tasarım","Müzik","Gezi & Röportaj","Medya Teorisi","Tarih"];
-
-  var FONT_STYLES = [
-    "italic 500 1.05rem/1 var(--serif)",
-    "600 .92rem/1 var(--serif)",
-    "700 .82rem/1 var(--sans)",
-    "500 .82rem/1 var(--sans)"
-  ];
-
-  var STORAGE_KEY = "kitaplik-data";
-  var storageOK = true;
-  var warned = false;
-
-  function storageGet(){
-    try{
-      return localStorage.getItem(STORAGE_KEY);
-    } catch(e){ return null; }
-  }
-  function storageSet(value){
-    localStorage.setItem(STORAGE_KEY, value);
-  }
-
-  // ---------- bulut senkronu (Firebase) ----------
-  // Kendi Firebase projenin bilgilerini aşağıya yapıştır (Firebase konsolu > Proje ayarları > Web uygulaması).
-  // Bu bilgiler yapıştırılmadığı sürece site normal şekilde, sadece bu cihazda çalışmaya devam eder.
-  var firebaseConfig = {
-    apiKey: "AIzaSyAGq25wKNsGwlgWI66B45bEl93Zq9eKofI",
-    authDomain: "kitaplik-c0bfa.firebaseapp.com",
-    projectId: "kitaplik-c0bfa",
-    storageBucket: "kitaplik-c0bfa.firebasestorage.app",
-    messagingSenderId: "599235233260",
-    appId: "1:599235233260:web:1946ae1794f88428ccecc9"
-  };
-  var cloudConfigured = firebaseConfig.apiKey.indexOf("BURAYA_") === -1;
-  var cloudReady = false;
-  var fsMod = null;
-  var docRef = null;
-
-  var seedData = {
-    shelves: [
-      {
-        id: "shelf-seed",
-        label: "2026",
-        books: [
-          mkBook("Yüzyıllık Yalnızlık","Gabriel García Márquez","Roman",
-            "", 0, 46),
-          mkBook("Yeni Medyanın Dili","Lev Manovich","Medya Teorisi",
-            "", 1, 40),
-          mkBook("Yaşamak","Yu Hua","Roman",
-            "", 2, 38),
-          mkBook("Yaratma Cesareti","Rollo May","Psikoloji",
-            "", 3, 42),
-          mkBook("Yaratıcı Eylem","Rick Rubin","Kişisel Gelişim",
-            "", 4, 52),
-          mkBook("Yalnızız","Peyami Safa","Roman",
-            "", 5, 44),
-          mkBook("Wigan İskelesi Yolu","George Orwell","Deneme & Gezi",
-            "", 6, 46),
-          mkBook("Vinyl. Album. Cover. Art — The Complete Hipgnosis Catalogue","Aubrey Powell","Sanat & Tasarım",
-            "", 7, 50),
-          mkBook("The Package Design Book","Pentawards / Taschen","Sanat & Tasarım",
-            "", 8, 54)
-        ]
-      }
-    ]
-  };
-
-  function mkBook(title, author, genre, review, colorIdx, width){
-    var p = PALETTE[colorIdx % PALETTE.length];
-    return {
-      id: uid(),
-      title: title, author: author || "", genre: genre || "", review: review || "",
-      color: p.c, textColor: p.t,
-      font: FONT_STYLES[colorIdx % FONT_STYLES.length],
-      width: width, height: 230 + ((colorIdx * 37) % 70)
-    };
-  }
-
-  function uid(){
-    if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
-    return "id-" + Date.now() + "-" + Math.random().toString(16).slice(2);
-  }
-
-  var data = { shelves: [] };
-
-  // ---------- persistence: Firebase varsa bulut + gerçek zamanlı senkron, yoksa bu cihazın hafızası ----------
-  async function initApp(){
-    if (cloudConfigured){
-      try{
-        var appMod = await import("https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js");
-        fsMod = await import("https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js");
-        var authMod = await import("https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js");
-
-        var app = appMod.initializeApp(firebaseConfig);
-        var db = fsMod.getFirestore(app);
-        var auth = authMod.getAuth(app);
-
-        await new Promise(function(resolve, reject){
-          authMod.onAuthStateChanged(auth, function(user){
-            if (user) resolve();
-          });
-          authMod.signInAnonymously(auth).catch(reject);
-        });
-
-        docRef = fsMod.doc(db, "kitaplik", "data");
-        var snap = await fsMod.getDoc(docRef);
-        if (snap.exists() && snap.data().payload){
-          data = JSON.parse(snap.data().payload);
-        } else {
-          data = seedData;
-          await fsMod.setDoc(docRef, { payload: JSON.stringify(data) });
-        }
-        cloudReady = true;
-
-        fsMod.onSnapshot(docRef, function(s){
-          if (!s.exists() || !s.data().payload) return;
-          data = JSON.parse(s.data().payload);
-          render();
-        });
-      } catch(e){
-        console.warn("Buluta bağlanılamadı, bu cihazda saklanacak.", e);
-        cloudReady = false;
-      }
-    }
-
-    if (!cloudReady){
-      try{
-        var raw = storageGet();
-        if (raw){
-          data = JSON.parse(raw);
-        } else {
-          data = seedData;
-          storageSet(JSON.stringify(data));
-        }
-      } catch(e){
-        data = seedData;
-        storageOK = false;
-      }
-    }
-
-    if (data.siteTitle){
-      document.getElementById("siteTitle").textContent = data.siteTitle;
-    }
-    render();
-    if (!cloudReady && !storageOK && !warned){
-      warned = true;
-      showSaveWarning();
-    }
-  }
-
-  async function saveData(){
-    if (cloudReady && docRef && fsMod){
-      try{
-        await fsMod.setDoc(docRef, { payload: JSON.stringify(data) });
-        return;
-      } catch(e){
-        console.warn("Buluta kaydedilemedi, bu cihazda saklanıyor.", e);
-      }
-    }
-    try{
-      storageSet(JSON.stringify(data));
-    } catch(e){
-      storageOK = false;
-      if (!warned){
-        warned = true;
-        showSaveWarning();
-      }
-    }
-  }
-
-  function showSaveWarning(){
-    var el = document.createElement("div");
-    el.className = "save-warning";
-    el.textContent = "Bu tarayıcıda kalıcı depolama kullanılamıyor — değişiklikler yalnızca bu oturumda görünecek. Siteyi gerçek bir adrese yayınladığında bu sorun kalmayacak.";
-    document.body.appendChild(el);
-    setTimeout(function(){ el.remove(); }, 6000);
-  }
-
-  // ---------- render ----------
-  function render(){
-    var container = document.getElementById("shelvesContainer");
-    container.innerHTML = "";
-
-    var totalBooks = data.shelves.reduce(function(a,s){ return a + s.books.length; }, 0);
-    var syncNote = cloudReady ? "bulutla senkron" : (cloudConfigured ? "buluta bağlanılamadı, bu cihazda" : "bu cihazda saklanıyor");
-    document.getElementById("statLine").textContent =
-      data.shelves.length + " raf, " + totalBooks + " kitap, " + syncNote;
-
-    if (data.shelves.length === 0){
-      var empty = document.createElement("div");
-      empty.className = "empty-state";
-      empty.innerHTML = "<h2>Raf henüz boş</h2><p>İlk rafını oluşturup okuduğun kitapları eklemeye başla.</p>";
-      var btn = document.createElement("button");
-      btn.className = "btn-outline";
-      btn.textContent = "+ Yeni raf";
-      btn.onclick = openShelfModal;
-      empty.appendChild(btn);
-      container.appendChild(empty);
-      return;
-    }
-
-    data.shelves.forEach(function(shelf){
-      container.appendChild(renderShelf(shelf));
-    });
-  }
-
-  function renderShelf(shelf){
-    var section = document.createElement("section");
-    section.className = "shelf";
-
-    var head = document.createElement("div");
-    head.className = "shelf-head";
-
-    var label = document.createElement("h2");
-    label.className = "shelf-label";
-    label.contentEditable = "true";
-    label.spellcheck = false;
-    label.textContent = shelf.label;
-    label.addEventListener("blur", function(){
-      shelf.label = label.textContent.trim() || shelf.label;
-      label.textContent = shelf.label;
-      saveData();
-    });
-    label.addEventListener("keydown", function(e){
-      if (e.key === "Enter"){ e.preventDefault(); label.blur(); }
-    });
-
-    var count = document.createElement("span");
-    count.className = "shelf-count";
-    count.textContent = shelf.books.length + " kitap";
-
-    var del = document.createElement("button");
-    del.className = "shelf-delete";
-    del.textContent = "Rafı sil";
-    del.onclick = function(){ confirmDeleteShelf(shelf.id); };
-
-    head.appendChild(label);
-    head.appendChild(count);
-    head.appendChild(del);
-
-    var row = document.createElement("div");
-    row.className = "shelf-row";
-
-    shelf.books.forEach(function(book){
-      row.appendChild(renderSpine(book, shelf.id));
-    });
-
-    var addBtn = document.createElement("button");
-    addBtn.className = "add-spine";
-    addBtn.textContent = "+";
-    addBtn.title = "Bu rafa kitap ekle";
-    addBtn.onclick = function(){ openBookModal(null, shelf.id); };
-    row.appendChild(addBtn);
-
-    var plank = document.createElement("div");
-    plank.className = "shelf-plank";
-
-    section.appendChild(head);
-    section.appendChild(row);
-    section.appendChild(plank);
-    return section;
-  }
-
-  function truncateForSpine(title, heightPx){
-    var maxChars = Math.max(10, Math.floor((heightPx - 24) / 15));
-    if (title.length <= maxChars) return title;
-    return title.slice(0, maxChars - 1).trim() + "…";
-  }
-
-  function renderSpine(book, shelfId){
-    var el = document.createElement("div");
-    el.className = "spine";
-    el.style.setProperty("--w", book.width + "px");
-    el.style.setProperty("--h", book.height + "px");
-    el.style.setProperty("--c", book.color);
-    el.style.setProperty("--t", book.textColor);
-    el.title = book.title + (book.author ? " — " + book.author : "");
-
-    var t = document.createElement("div");
-    t.className = "spine-title";
-    t.style.font = book.font;
-    t.textContent = truncateForSpine(book.title, book.height);
-    el.appendChild(t);
-
-    el.onclick = function(){ openDetailModal(book, shelfId); };
-    return el;
-  }
-
-  // ---------- book detail modal ----------
-  function openDetailModal(book, shelfId){
-    var overlay = document.getElementById("bookOverlay");
-    var modal = document.getElementById("bookModal");
-    modal.innerHTML = "";
-
-    var h = document.createElement("h3");
-    h.textContent = book.title;
-    modal.appendChild(h);
-
-    if (book.author){
-      var author = document.createElement("p");
-      author.className = "detail-author";
-      author.textContent = book.author;
-      modal.appendChild(author);
-    }
-
-    if (book.genre){
-      var genre = document.createElement("span");
-      genre.className = "detail-genre";
-      genre.textContent = book.genre;
-      modal.appendChild(genre);
-    }
-
-    var review = document.createElement("p");
-    if (book.review && book.review.trim()){
-      review.className = "detail-review";
-      review.textContent = book.review;
-    } else {
-      review.className = "detail-review placeholder";
-      review.textContent = "Henüz yorum eklenmedi.";
-    }
-    modal.appendChild(review);
-
-    var actions = document.createElement("div");
-    actions.className = "modal-actions";
-
-    var delBtn = document.createElement("button");
-    delBtn.className = "btn-danger";
-    delBtn.textContent = "Sil";
-    delBtn.onclick = function(){ confirmDeleteBook(book.id, shelfId); };
-
-    var editBtn = document.createElement("button");
-    editBtn.className = "btn-secondary";
-    editBtn.textContent = "Düzenle";
-    editBtn.onclick = function(){ closeOverlay(overlay); openBookModal(book, shelfId); };
-
-    var closeBtn = document.createElement("button");
-    closeBtn.className = "btn-primary";
-    closeBtn.textContent = "Kapat";
-    closeBtn.onclick = function(){ closeOverlay(overlay); };
-
-    actions.appendChild(delBtn);
-    actions.appendChild(editBtn);
-    actions.appendChild(closeBtn);
-    modal.appendChild(actions);
-
-    openOverlay(overlay);
-  }
-
-  // ---------- add / edit book modal ----------
-  function openBookModal(book, shelfId){
-    var isEdit = !!book;
-    var overlay = document.getElementById("bookOverlay");
-    var modal = document.getElementById("bookModal");
-    modal.innerHTML = "";
-
-    var h = document.createElement("h3");
-    h.textContent = isEdit ? "Kitabı düzenle" : "Kitap ekle";
-    modal.appendChild(h);
-
-    var sub = document.createElement("p");
-    sub.className = "sub";
-    var shelfLabel = (data.shelves.find(function(s){return s.id===shelfId;}) || {}).label || "";
-    sub.textContent = shelfLabel ? shelfLabel + " rafına" : "";
-    modal.appendChild(sub);
-
-    var form = document.createElement("form");
-
-    form.appendChild(fieldLabel("Kitap adı"));
-    var titleInput = document.createElement("input");
-    titleInput.type = "text"; titleInput.required = true;
-    titleInput.value = isEdit ? book.title : "";
-    titleInput.placeholder = "ör. Körlük";
-    form.appendChild(titleInput);
-
-    form.appendChild(fieldLabel("Yazar"));
-    var authorInput = document.createElement("input");
-    authorInput.type = "text";
-    authorInput.value = isEdit ? book.author : "";
-    authorInput.placeholder = "ör. José Saramago";
-    form.appendChild(authorInput);
-
-    form.appendChild(fieldLabel("Tür"));
-    var genreInput = document.createElement("input");
-    genreInput.type = "text";
-    genreInput.setAttribute("list", "genre-list");
-    genreInput.value = isEdit ? book.genre : "";
-    genreInput.placeholder = "ör. Roman";
-    form.appendChild(genreInput);
-
-    var datalist = document.createElement("datalist");
-    datalist.id = "genre-list";
-    GENRES.forEach(function(g){
-      var opt = document.createElement("option");
-      opt.value = g;
-      datalist.appendChild(opt);
-    });
-    form.appendChild(datalist);
-
-    form.appendChild(fieldLabel("Yorumun"));
-    var reviewInput = document.createElement("textarea");
-    reviewInput.value = isEdit ? book.review : "";
-    reviewInput.placeholder = "Bu kitap hakkında ne düşünüyorsun?";
-    form.appendChild(reviewInput);
-
-    form.appendChild(fieldLabel("Sırt rengi"));
-    var swatchRow = document.createElement("div");
-    swatchRow.className = "swatches";
-    var selectedColor = isEdit ? book.color : PALETTE[Math.floor(Math.random()*PALETTE.length)].c;
-    PALETTE.forEach(function(p){
-      var sw = document.createElement("button");
-      sw.type = "button";
-      sw.className = "swatch" + (p.c === selectedColor ? " selected" : "");
-      sw.style.background = p.c;
-      sw.onclick = function(){
-        selectedColor = p.c;
-        Array.prototype.forEach.call(swatchRow.children, function(c){ c.classList.remove("selected"); });
-        sw.classList.add("selected");
-      };
-      swatchRow.appendChild(sw);
-    });
-    form.appendChild(swatchRow);
-
-    var actions = document.createElement("div");
-    actions.className = "modal-actions";
-
-    var cancelBtn = document.createElement("button");
-    cancelBtn.type = "button";
-    cancelBtn.className = "btn-secondary";
-    cancelBtn.textContent = "Vazgeç";
-    cancelBtn.onclick = function(){ closeOverlay(overlay); };
-
-    var saveBtn = document.createElement("button");
-    saveBtn.type = "submit";
-    saveBtn.className = "btn-primary";
-    saveBtn.textContent = isEdit ? "Kaydet" : "Rafa ekle";
-
-    actions.appendChild(cancelBtn);
-    actions.appendChild(saveBtn);
-    form.appendChild(actions);
-
-    form.onsubmit = function(e){
-      e.preventDefault();
-      var title = titleInput.value.trim();
-      if (!title) return;
-      var colorObj = PALETTE.find(function(p){ return p.c === selectedColor; }) || PALETTE[0];
-
-      if (isEdit){
-        book.title = title;
-        book.author = authorInput.value.trim();
-        book.genre = genreInput.value.trim();
-        book.review = reviewInput.value.trim();
-        book.color = colorObj.c;
-        book.textColor = colorObj.t;
-      } else {
-        var shelf = data.shelves.find(function(s){ return s.id === shelfId; });
-        var idx = shelf.books.length;
-        var newBook = {
-          id: uid(),
-          title: title,
-          author: authorInput.value.trim(),
-          genre: genreInput.value.trim(),
-          review: reviewInput.value.trim(),
-          color: colorObj.c,
-          textColor: colorObj.t,
-          font: FONT_STYLES[idx % FONT_STYLES.length],
-          width: 34 + Math.floor(Math.random() * 22),
-          height: 220 + Math.floor(Math.random() * 80)
-        };
-        shelf.books.push(newBook);
-      }
-      saveData();
-      render();
-      closeOverlay(overlay);
-    };
-
-    modal.appendChild(form);
-    openOverlay(overlay);
-    titleInput.focus();
-  }
-
-  function fieldLabel(text){
-    var l = document.createElement("label");
-    l.textContent = text;
-    return l;
-  }
-
-  // ---------- add shelf modal ----------
-  function openShelfModal(){
-    var overlay = document.getElementById("shelfOverlay");
-    var modal = document.getElementById("shelfModal");
-    modal.innerHTML = "";
-
-    var h = document.createElement("h3");
-    h.textContent = "Yeni raf ekle";
-    modal.appendChild(h);
-
-    var sub = document.createElement("p");
-    sub.className = "sub";
-    sub.textContent = "Rafları genelde yıllara göre ayırmak işe yarar.";
-    modal.appendChild(sub);
-
-    var usedLabels = data.shelves.map(function(s){ return s.label; });
-    var now = new Date().getFullYear();
-    var candidateYears = [now+1, now, now-1, now-2].filter(function(y){
-      return usedLabels.indexOf(String(y)) === -1;
-    });
-
-    if (candidateYears.length){
-      var chips = document.createElement("div");
-      chips.className = "year-chips";
-      candidateYears.forEach(function(y){
-        var chip = document.createElement("button");
-        chip.type = "button";
-        chip.className = "year-chip";
-        chip.textContent = y;
-        chip.onclick = function(){
-          addShelf(String(y));
-          closeOverlay(overlay);
-        };
-        chips.appendChild(chip);
-      });
-      modal.appendChild(chips);
-      var divider = document.createElement("div");
-      divider.className = "or-divider";
-      divider.textContent = "ya da kendi etiketini yaz:";
-      modal.appendChild(divider);
-    }
-
-    var form = document.createElement("form");
-    form.appendChild(fieldLabel("Raf etiketi"));
-    var input = document.createElement("input");
-    input.type = "text";
-    input.placeholder = "ör. 2023 ya da Favoriler";
-    form.appendChild(input);
-
-    var actions = document.createElement("div");
-    actions.className = "modal-actions";
-    var cancelBtn = document.createElement("button");
-    cancelBtn.type = "button"; cancelBtn.className = "btn-secondary"; cancelBtn.textContent = "Vazgeç";
-    cancelBtn.onclick = function(){ closeOverlay(overlay); };
-    var saveBtn = document.createElement("button");
-    saveBtn.type = "submit"; saveBtn.className = "btn-primary"; saveBtn.textContent = "Rafı oluştur";
-    actions.appendChild(cancelBtn);
-    actions.appendChild(saveBtn);
-    form.appendChild(actions);
-
-    form.onsubmit = function(e){
-      e.preventDefault();
-      var label = input.value.trim();
-      if (!label) return;
-      addShelf(label);
-      closeOverlay(overlay);
-    };
-
-    modal.appendChild(form);
-    openOverlay(overlay);
-    input.focus();
-  }
-
-  function addShelf(label){
-    data.shelves.push({ id: uid(), label: label, books: [] });
-    saveData();
-    render();
-  }
-
-  // ---------- confirm helper ----------
-  function showConfirm(message, onConfirm){
-    var overlay = document.getElementById("confirmOverlay");
-    var modal = document.getElementById("confirmModal");
-    modal.innerHTML = "";
-
-    var p = document.createElement("p");
-    p.style.margin = "0 0 18px";
-    p.style.fontSize = ".95rem";
-    p.textContent = message;
-    modal.appendChild(p);
-
-    var actions = document.createElement("div");
-    actions.className = "modal-actions";
-    var cancelBtn = document.createElement("button");
-    cancelBtn.className = "btn-secondary"; cancelBtn.textContent = "Vazgeç";
-    cancelBtn.onclick = function(){ closeOverlay(overlay); };
-    var okBtn = document.createElement("button");
-    okBtn.className = "btn-danger"; okBtn.textContent = "Sil";
-    okBtn.onclick = function(){ closeOverlay(overlay); onConfirm(); };
-    actions.appendChild(cancelBtn);
-    actions.appendChild(okBtn);
-    modal.appendChild(actions);
-
-    openOverlay(overlay);
-  }
-
-  function confirmDeleteBook(bookId, shelfId){
-    showConfirm("Bu kitabı raftan silmek istediğine emin misin?", function(){
-      var shelf = data.shelves.find(function(s){ return s.id === shelfId; });
-      shelf.books = shelf.books.filter(function(b){ return b.id !== bookId; });
-      saveData();
-      render();
-      closeOverlay(document.getElementById("bookOverlay"));
-    });
-  }
-
-  function confirmDeleteShelf(shelfId){
-    var shelf = data.shelves.find(function(s){ return s.id === shelfId; });
-    var msg = shelf.books.length
-      ? "Bu raf " + shelf.books.length + " kitap içeriyor. Rafı ve içindeki kitapları silmek istediğine emin misin?"
-      : "Bu rafı silmek istediğine emin misin?";
-    showConfirm(msg, function(){
-      data.shelves = data.shelves.filter(function(s){ return s.id !== shelfId; });
-      saveData();
-      render();
-    });
-  }
-
-  // ---------- overlay helpers ----------
-  function openOverlay(overlay){ overlay.hidden = false; }
-  function closeOverlay(overlay){ overlay.hidden = true; }
-  [document.getElementById("bookOverlay"), document.getElementById("shelfOverlay"), document.getElementById("confirmOverlay")]
-    .forEach(function(ov){
-      ov.addEventListener("click", function(e){ if (e.target === ov) closeOverlay(ov); });
-    });
-
-  // ---------- site title persistence ----------
-  var titleEl = document.getElementById("siteTitle");
-  titleEl.addEventListener("blur", function(){
-    data.siteTitle = titleEl.textContent.trim() || "Kitaplığım";
-    titleEl.textContent = data.siteTitle;
-    saveData();
-  });
-  titleEl.addEventListener("keydown", function(e){
-    if (e.key === "Enter"){ e.preventDefault(); titleEl.blur(); }
-  });
-
-  document.getElementById("addShelfBtn").onclick = openShelfModal;
-  document.getElementById("addShelfTile").onclick = openShelfModal;
-
-  document.addEventListener("keydown", function(e){
-    if (e.key === "Escape"){
-      [document.getElementById("bookOverlay"), document.getElementById("shelfOverlay"), document.getElementById("confirmOverlay")]
-        .forEach(closeOverlay);
-    }
-  });
-
-  initApp();
+  "use strict";
+
+  var PALETTE = [
+    {c:"#7fc8bd", t:"#12302b"},
+    {c:"#8fb8e0", t:"#122236"},
+    {c:"#f4efe3", t:"#2a241a"},
+    {c:"#c9d6d2", t:"#243330"},
+    {c:"#a89f8f", t:"#221f18"},
+    {c:"#5fa8d3", t:"#0f2333"},
+    {c:"#2f7d78", t:"#eaf4f2"},
+    {c:"#e8b23a", t:"#2a1d05"},
+    {c:"#c1694f", t:"#2c1108"},
+    {c:"#e8b4b8", t:"#2c1418"},
+    {c:"#33363a", t:"#e9e8e6"},
+    {c:"#7a9471", t:"#1a2416"}
+  ];
+
+  var GENRES = ["Roman","Deneme","Şiir","Psikoloji","Kişisel Gelişim","Distopya","Biyografi",
+    "Öykü","Felsefe","Sanat & Tasarım","Müzik","Gezi & Röportaj","Medya Teorisi","Tarih"];
+
+  var FONT_STYLES = [
+    "italic 500 1.05rem/1 var(--serif)",
+    "600 .92rem/1 var(--serif)",
+    "700 .82rem/1 var(--sans)",
+    "500 .82rem/1 var(--sans)"
+  ];
+
+  var STORAGE_KEY = "kitaplik-data";
+  var storageOK = true;
+  var warned = false;
+
+  function storageGet(){
+    try{
+      return localStorage.getItem(STORAGE_KEY);
+    } catch(e){ return null; }
+  }
+  function storageSet(value){
+    localStorage.setItem(STORAGE_KEY, value);
+  }
+
+  // ---------- bulut senkronu (Firebase) ----------
+  // Kendi Firebase projenin bilgilerini aşağıya yapıştır (Firebase konsolu > Proje ayarları > Web uygulaması).
+  // Bu bilgiler yapıştırılmadığı sürece site normal şekilde, sadece bu cihazda çalışmaya devam eder.
+  var firebaseConfig = {
+    apiKey: "AIzaSyAGq25wKNsGwlgWI66B45bEl93Zq9eKofI",
+    authDomain: "kitaplik-c0bfa.firebaseapp.com",
+    projectId: "kitaplik-c0bfa",
+    storageBucket: "kitaplik-c0bfa.firebasestorage.app",
+    messagingSenderId: "599235233260",
+    appId: "1:599235233260:web:1946ae1794f88428ccecc9"
+  };
+  var cloudConfigured = firebaseConfig.apiKey.indexOf("BURAYA_") === -1;
+  var cloudReady = false;
+  var fsMod = null;
+  var docRef = null;
+
+  var seedData = {
+    shelves: [
+      {
+        id: "shelf-seed",
+        label: "2026",
+        books: [
+          mkBook("Yüzyıllık Yalnızlık","Gabriel García Márquez","Roman",
+            "", 0, 46),
+          mkBook("Yeni Medyanın Dili","Lev Manovich","Medya Teorisi",
+            "", 1, 40),
+          mkBook("Yaşamak","Yu Hua","Roman",
+            "", 2, 38),
+          mkBook("Yaratma Cesareti","Rollo May","Psikoloji",
+            "", 3, 42),
+          mkBook("Yaratıcı Eylem","Rick Rubin","Kişisel Gelişim",
+            "", 4, 52),
+          mkBook("Yalnızız","Peyami Safa","Roman",
+            "", 5, 44),
+          mkBook("Wigan İskelesi Yolu","George Orwell","Deneme & Gezi",
+            "", 6, 46),
+          mkBook("Vinyl. Album. Cover. Art — The Complete Hipgnosis Catalogue","Aubrey Powell","Sanat & Tasarım",
+            "", 7, 50),
+          mkBook("The Package Design Book","Pentawards / Taschen","Sanat & Tasarım",
+            "", 8, 54)
+        ]
+      }
+    ]
+  };
+
+  function mkBook(title, author, genre, review, colorIdx, width){
+    var p = PALETTE[colorIdx % PALETTE.length];
+    return {
+      id: uid(),
+      title: title, author: author || "", genre: genre || "", review: review || "",
+      color: p.c, textColor: p.t,
+      font: FONT_STYLES[colorIdx % FONT_STYLES.length],
+      width: width, height: 230 + ((colorIdx * 37) % 70)
+    };
+  }
+
+  function uid(){
+    if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+    return "id-" + Date.now() + "-" + Math.random().toString(16).slice(2);
+  }
+
+  var data = { shelves: [] };
+
+  // ---------- persistence: Firebase varsa bulut + gerçek zamanlı senkron, yoksa bu cihazın hafızası ----------
+  async function initApp(){
+    if (cloudConfigured){
+      try{
+        var appMod = await import("https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js");
+        fsMod = await import("https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js");
+        var authMod = await import("https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js");
+
+        var app = appMod.initializeApp(firebaseConfig);
+        var db = fsMod.getFirestore(app);
+        var auth = authMod.getAuth(app);
+
+        await new Promise(function(resolve, reject){
+          authMod.onAuthStateChanged(auth, function(user){
+            if (user) resolve();
+          });
+          authMod.signInAnonymously(auth).catch(reject);
+        });
+
+        docRef = fsMod.doc(db, "kitaplik", "data");
+        var snap = await fsMod.getDoc(docRef);
+        if (snap.exists() && snap.data().payload){
+          data = JSON.parse(snap.data().payload);
+        } else {
+          data = seedData;
+          await fsMod.setDoc(docRef, { payload: JSON.stringify(data) });
+        }
+        cloudReady = true;
+
+        fsMod.onSnapshot(docRef, function(s){
+          if (!s.exists() || !s.data().payload) return;
+          data = JSON.parse(s.data().payload);
+          render();
+        });
+      } catch(e){
+        console.warn("Buluta bağlanılamadı, bu cihazda saklanacak.", e);
+        cloudReady = false;
+      }
+    }
+
+    if (!cloudReady){
+      try{
+        var raw = storageGet();
+        if (raw){
+          data = JSON.parse(raw);
+        } else {
+          data = seedData;
+          storageSet(JSON.stringify(data));
+        }
+      } catch(e){
+        data = seedData;
+        storageOK = false;
+      }
+    }
+
+    if (data.siteTitle){
+      document.getElementById("siteTitle").textContent = data.siteTitle;
+    }
+    render();
+    if (!cloudReady && !storageOK && !warned){
+      warned = true;
+      showSaveWarning();
+    }
+  }
+
+  async function saveData(){
+    if (cloudReady && docRef && fsMod){
+      try{
+        await fsMod.setDoc(docRef, { payload: JSON.stringify(data) });
+        return;
+      } catch(e){
+        console.warn("Buluta kaydedilemedi, bu cihazda saklanıyor.", e);
+      }
+    }
+    try{
+      storageSet(JSON.stringify(data));
+    } catch(e){
+      storageOK = false;
+      if (!warned){
+        warned = true;
+        showSaveWarning();
+      }
+    }
+  }
+
+  function showSaveWarning(){
+    var el = document.createElement("div");
+    el.className = "save-warning";
+    el.textContent = "Bu tarayıcıda kalıcı depolama kullanılamıyor — değişiklikler yalnızca bu oturumda görünecek. Siteyi gerçek bir adrese yayınladığında bu sorun kalmayacak.";
+    document.body.appendChild(el);
+    setTimeout(function(){ el.remove(); }, 6000);
+  }
+
+  // ---------- render ----------
+  function render(){
+    var container = document.getElementById("shelvesContainer");
+    container.innerHTML = "";
+
+    var totalBooks = data.shelves.reduce(function(a,s){ return a + s.books.length; }, 0);
+    var syncNote = cloudReady ? "bulutla senkron" : (cloudConfigured ? "buluta bağlanılamadı, bu cihazda" : "bu cihazda saklanıyor");
+    document.getElementById("statLine").textContent =
+      data.shelves.length + " raf, " + totalBooks + " kitap, " + syncNote;
+
+    if (data.shelves.length === 0){
+      var empty = document.createElement("div");
+      empty.className = "empty-state";
+      empty.innerHTML = "<h2>Raf henüz boş</h2><p>İlk rafını oluşturup okuduğun kitapları eklemeye başla.</p>";
+      var btn = document.createElement("button");
+      btn.className = "btn-outline";
+      btn.textContent = "+ Yeni raf";
+      btn.onclick = openShelfModal;
+      empty.appendChild(btn);
+      container.appendChild(empty);
+      return;
+    }
+
+    data.shelves.forEach(function(shelf){
+      container.appendChild(renderShelf(shelf));
+    });
+  }
+
+  function renderShelf(shelf){
+    var section = document.createElement("section");
+    section.className = "shelf";
+
+    var head = document.createElement("div");
+    head.className = "shelf-head";
+
+    var label = document.createElement("h2");
+    label.className = "shelf-label";
+    label.contentEditable = "true";
+    label.spellcheck = false;
+    label.textContent = shelf.label;
+    label.addEventListener("blur", function(){
+      shelf.label = label.textContent.trim() || shelf.label;
+      label.textContent = shelf.label;
+      saveData();
+    });
+    label.addEventListener("keydown", function(e){
+      if (e.key === "Enter"){ e.preventDefault(); label.blur(); }
+    });
+
+    var count = document.createElement("span");
+    count.className = "shelf-count";
+    count.textContent = shelf.books.length + " kitap";
+
+    var del = document.createElement("button");
+    del.className = "shelf-delete";
+    del.textContent = "Rafı sil";
+    del.onclick = function(){ confirmDeleteShelf(shelf.id); };
+
+    head.appendChild(label);
+    head.appendChild(count);
+    head.appendChild(del);
+
+    var row = document.createElement("div");
+    row.className = "shelf-row";
+
+    shelf.books.forEach(function(book){
+      row.appendChild(renderSpine(book, shelf.id));
+    });
+
+    var addBtn = document.createElement("button");
+    addBtn.className = "add-spine";
+    addBtn.textContent = "+";
+    addBtn.title = "Bu rafa kitap ekle";
+    addBtn.onclick = function(){ openBookModal(null, shelf.id); };
+    row.appendChild(addBtn);
+
+    var plank = document.createElement("div");
+    plank.className = "shelf-plank";
+
+    section.appendChild(head);
+    section.appendChild(row);
+    section.appendChild(plank);
+    return section;
+  }
+
+  function truncateForSpine(title, heightPx){
+    var maxChars = Math.max(10, Math.floor((heightPx - 24) / 15));
+    if (title.length <= maxChars) return title;
+    return title.slice(0, maxChars - 1).trim() + "…";
+  }
+
+  function renderSpine(book, shelfId){
+    var el = document.createElement("div");
+    el.className = "spine";
+    el.style.setProperty("--w", book.width + "px");
+    el.style.setProperty("--h", book.height + "px");
+    el.style.setProperty("--c", book.color);
+    el.style.setProperty("--t", book.textColor);
+    el.title = book.title + (book.author ? " — " + book.author : "");
+
+    var t = document.createElement("div");
+    t.className = "spine-title";
+    t.style.font = book.font;
+    t.textContent = truncateForSpine(book.title, book.height);
+    el.appendChild(t);
+
+    el.onclick = function(){ openDetailModal(book, shelfId); };
+    return el;
+  }
+
+  // ---------- book detail modal ----------
+  function openDetailModal(book, shelfId){
+    var overlay = document.getElementById("bookOverlay");
+    var modal = document.getElementById("bookModal");
+    modal.innerHTML = "";
+
+    var h = document.createElement("h3");
+    h.textContent = book.title;
+    modal.appendChild(h);
+
+    if (book.author){
+      var author = document.createElement("p");
+      author.className = "detail-author";
+      author.textContent = book.author;
+      modal.appendChild(author);
+    }
+
+    if (book.genre){
+      var genre = document.createElement("span");
+      genre.className = "detail-genre";
+      genre.textContent = book.genre;
+      modal.appendChild(genre);
+    }
+
+    var review = document.createElement("p");
+    if (book.review && book.review.trim()){
+      review.className = "detail-review";
+      review.textContent = book.review;
+    } else {
+      review.className = "detail-review placeholder";
+      review.textContent = "Henüz yorum eklenmedi.";
+    }
+    modal.appendChild(review);
+
+    var actions = document.createElement("div");
+    actions.className = "modal-actions";
+
+    var delBtn = document.createElement("button");
+    delBtn.className = "btn-danger";
+    delBtn.textContent = "Sil";
+    delBtn.onclick = function(){ confirmDeleteBook(book.id, shelfId); };
+
+    var editBtn = document.createElement("button");
+    editBtn.className = "btn-secondary";
+    editBtn.textContent = "Düzenle";
+    editBtn.onclick = function(){ closeOverlay(overlay); openBookModal(book, shelfId); };
+
+    var closeBtn = document.createElement("button");
+    closeBtn.className = "btn-primary";
+    closeBtn.textContent = "Kapat";
+    closeBtn.onclick = function(){ closeOverlay(overlay); };
+
+    actions.appendChild(delBtn);
+    actions.appendChild(editBtn);
+    actions.appendChild(closeBtn);
+    modal.appendChild(actions);
+
+    openOverlay(overlay);
+  }
+
+  // ---------- add / edit book modal ----------
+  function openBookModal(book, shelfId){
+    var isEdit = !!book;
+    var overlay = document.getElementById("bookOverlay");
+    var modal = document.getElementById("bookModal");
+    modal.innerHTML = "";
+
+    var h = document.createElement("h3");
+    h.textContent = isEdit ? "Kitabı düzenle" : "Kitap ekle";
+    modal.appendChild(h);
+
+    var sub = document.createElement("p");
+    sub.className = "sub";
+    var shelfLabel = (data.shelves.find(function(s){return s.id===shelfId;}) || {}).label || "";
+    sub.textContent = shelfLabel ? shelfLabel + " rafına" : "";
+    modal.appendChild(sub);
+
+    var form = document.createElement("form");
+
+    form.appendChild(fieldLabel("Kitap adı"));
+    var titleInput = document.createElement("input");
+    titleInput.type = "text"; titleInput.required = true;
+    titleInput.value = isEdit ? book.title : "";
+    titleInput.placeholder = "ör. Körlük";
+    form.appendChild(titleInput);
+
+    form.appendChild(fieldLabel("Yazar"));
+    var authorInput = document.createElement("input");
+    authorInput.type = "text";
+    authorInput.value = isEdit ? book.author : "";
+    authorInput.placeholder = "ör. José Saramago";
+    form.appendChild(authorInput);
+
+    form.appendChild(fieldLabel("Tür"));
+    var genreInput = document.createElement("input");
+    genreInput.type = "text";
+    genreInput.setAttribute("list", "genre-list");
+    genreInput.value = isEdit ? book.genre : "";
+    genreInput.placeholder = "ör. Roman";
+    form.appendChild(genreInput);
+
+    var datalist = document.createElement("datalist");
+    datalist.id = "genre-list";
+    GENRES.forEach(function(g){
+      var opt = document.createElement("option");
+      opt.value = g;
+      datalist.appendChild(opt);
+    });
+    form.appendChild(datalist);
+
+    form.appendChild(fieldLabel("Yorumun"));
+    var reviewInput = document.createElement("textarea");
+    reviewInput.value = isEdit ? book.review : "";
+    reviewInput.placeholder = "Bu kitap hakkında ne düşünüyorsun?";
+    form.appendChild(reviewInput);
+
+    form.appendChild(fieldLabel("Sırt rengi"));
+    var swatchRow = document.createElement("div");
+    swatchRow.className = "swatches";
+    var selectedColor = isEdit ? book.color : PALETTE[Math.floor(Math.random()*PALETTE.length)].c;
+    PALETTE.forEach(function(p){
+      var sw = document.createElement("button");
+      sw.type = "button";
+      sw.className = "swatch" + (p.c === selectedColor ? " selected" : "");
+      sw.style.background = p.c;
+      sw.onclick = function(){
+        selectedColor = p.c;
+        Array.prototype.forEach.call(swatchRow.children, function(c){ c.classList.remove("selected"); });
+        sw.classList.add("selected");
+      };
+      swatchRow.appendChild(sw);
+    });
+    form.appendChild(swatchRow);
+
+    var actions = document.createElement("div");
+    actions.className = "modal-actions";
+
+    var cancelBtn = document.createElement("button");
+    cancelBtn.type = "button";
+    cancelBtn.className = "btn-secondary";
+    cancelBtn.textContent = "Vazgeç";
+    cancelBtn.onclick = function(){ closeOverlay(overlay); };
+
+    var saveBtn = document.createElement("button");
+    saveBtn.type = "submit";
+    saveBtn.className = "btn-primary";
+    saveBtn.textContent = isEdit ? "Kaydet" : "Rafa ekle";
+
+    actions.appendChild(cancelBtn);
+    actions.appendChild(saveBtn);
+    form.appendChild(actions);
+
+    form.onsubmit = function(e){
+      e.preventDefault();
+      var title = titleInput.value.trim();
+      if (!title) return;
+      var colorObj = PALETTE.find(function(p){ return p.c === selectedColor; }) || PALETTE[0];
+
+      if (isEdit){
+        book.title = title;
+        book.author = authorInput.value.trim();
+        book.genre = genreInput.value.trim();
+        book.review = reviewInput.value.trim();
+        book.color = colorObj.c;
+        book.textColor = colorObj.t;
+      } else {
+        var shelf = data.shelves.find(function(s){ return s.id === shelfId; });
+        var idx = shelf.books.length;
+        var newBook = {
+          id: uid(),
+          title: title,
+          author: authorInput.value.trim(),
+          genre: genreInput.value.trim(),
+          review: reviewInput.value.trim(),
+          color: colorObj.c,
+          textColor: colorObj.t,
+          font: FONT_STYLES[idx % FONT_STYLES.length],
+          width: 34 + Math.floor(Math.random() * 22),
+          height: 220 + Math.floor(Math.random() * 80)
+        };
+        shelf.books.push(newBook);
+      }
+      saveData();
+      render();
+      closeOverlay(overlay);
+    };
+
+    modal.appendChild(form);
+    openOverlay(overlay);
+    titleInput.focus();
+  }
+
+  function fieldLabel(text){
+    var l = document.createElement("label");
+    l.textContent = text;
+    return l;
+  }
+
+  // ---------- add shelf modal ----------
+  function openShelfModal(){
+    var overlay = document.getElementById("shelfOverlay");
+    var modal = document.getElementById("shelfModal");
+    modal.innerHTML = "";
+
+    var h = document.createElement("h3");
+    h.textContent = "Yeni raf ekle";
+    modal.appendChild(h);
+
+    var sub = document.createElement("p");
+    sub.className = "sub";
+    sub.textContent = "Rafları genelde yıllara göre ayırmak işe yarar.";
+    modal.appendChild(sub);
+
+    var usedLabels = data.shelves.map(function(s){ return s.label; });
+    var now = new Date().getFullYear();
+    var candidateYears = [now+1, now, now-1, now-2].filter(function(y){
+      return usedLabels.indexOf(String(y)) === -1;
+    });
+
+    if (candidateYears.length){
+      var chips = document.createElement("div");
+      chips.className = "year-chips";
+      candidateYears.forEach(function(y){
+        var chip = document.createElement("button");
+        chip.type = "button";
+        chip.className = "year-chip";
+        chip.textContent = y;
+        chip.onclick = function(){
+          addShelf(String(y));
+          closeOverlay(overlay);
+        };
+        chips.appendChild(chip);
+      });
+      modal.appendChild(chips);
+      var divider = document.createElement("div");
+      divider.className = "or-divider";
+      divider.textContent = "ya da kendi etiketini yaz:";
+      modal.appendChild(divider);
+    }
+
+    var form = document.createElement("form");
+    form.appendChild(fieldLabel("Raf etiketi"));
+    var input = document.createElement("input");
+    input.type = "text";
+    input.placeholder = "ör. 2023 ya da Favoriler";
+    form.appendChild(input);
+
+    var actions = document.createElement("div");
+    actions.className = "modal-actions";
+    var cancelBtn = document.createElement("button");
+    cancelBtn.type = "button"; cancelBtn.className = "btn-secondary"; cancelBtn.textContent = "Vazgeç";
+    cancelBtn.onclick = function(){ closeOverlay(overlay); };
+    var saveBtn = document.createElement("button");
+    saveBtn.type = "submit"; saveBtn.className = "btn-primary"; saveBtn.textContent = "Rafı oluştur";
+    actions.appendChild(cancelBtn);
+    actions.appendChild(saveBtn);
+    form.appendChild(actions);
+
+    form.onsubmit = function(e){
+      e.preventDefault();
+      var label = input.value.trim();
+      if (!label) return;
+      addShelf(label);
+      closeOverlay(overlay);
+    };
+
+    modal.appendChild(form);
+    openOverlay(overlay);
+    input.focus();
+  }
+
+  function addShelf(label){
+    data.shelves.push({ id: uid(), label: label, books: [] });
+    saveData();
+    render();
+  }
+
+  // ---------- confirm helper ----------
+  function showConfirm(message, onConfirm){
+    var overlay = document.getElementById("confirmOverlay");
+    var modal = document.getElementById("confirmModal");
+    modal.innerHTML = "";
+
+    var p = document.createElement("p");
+    p.style.margin = "0 0 18px";
+    p.style.fontSize = ".95rem";
+    p.textContent = message;
+    modal.appendChild(p);
+
+    var actions = document.createElement("div");
+    actions.className = "modal-actions";
+    var cancelBtn = document.createElement("button");
+    cancelBtn.className = "btn-secondary"; cancelBtn.textContent = "Vazgeç";
+    cancelBtn.onclick = function(){ closeOverlay(overlay); };
+    var okBtn = document.createElement("button");
+    okBtn.className = "btn-danger"; okBtn.textContent = "Sil";
+    okBtn.onclick = function(){ closeOverlay(overlay); onConfirm(); };
+    actions.appendChild(cancelBtn);
+    actions.appendChild(okBtn);
+    modal.appendChild(actions);
+
+    openOverlay(overlay);
+  }
+
+  function confirmDeleteBook(bookId, shelfId){
+    showConfirm("Bu kitabı raftan silmek istediğine emin misin?", function(){
+      var shelf = data.shelves.find(function(s){ return s.id === shelfId; });
+      shelf.books = shelf.books.filter(function(b){ return b.id !== bookId; });
+      saveData();
+      render();
+      closeOverlay(document.getElementById("bookOverlay"));
+    });
+  }
+
+  function confirmDeleteShelf(shelfId){
+    var shelf = data.shelves.find(function(s){ return s.id === shelfId; });
+    var msg = shelf.books.length
+      ? "Bu raf " + shelf.books.length + " kitap içeriyor. Rafı ve içindeki kitapları silmek istediğine emin misin?"
+      : "Bu rafı silmek istediğine emin misin?";
+    showConfirm(msg, function(){
+      data.shelves = data.shelves.filter(function(s){ return s.id !== shelfId; });
+      saveData();
+      render();
+    });
+  }
+
+  // ---------- overlay helpers ----------
+  function openOverlay(overlay){ overlay.hidden = false; }
+  function closeOverlay(overlay){ overlay.hidden = true; }
+  [document.getElementById("bookOverlay"), document.getElementById("shelfOverlay"), document.getElementById("confirmOverlay")]
+    .forEach(function(ov){
+      ov.addEventListener("click", function(e){ if (e.target === ov) closeOverlay(ov); });
+    });
+
+  // ---------- site title persistence ----------
+  var titleEl = document.getElementById("siteTitle");
+  titleEl.addEventListener("blur", function(){
+    data.siteTitle = titleEl.textContent.trim() || "Kitaplığım";
+    titleEl.textContent = data.siteTitle;
+    saveData();
+  });
+  titleEl.addEventListener("keydown", function(e){
+    if (e.key === "Enter"){ e.preventDefault(); titleEl.blur(); }
+  });
+
+  document.getElementById("addShelfBtn").onclick = openShelfModal;
+  document.getElementById("addShelfTile").onclick = openShelfModal;
+
+  document.addEventListener("keydown", function(e){
+    if (e.key === "Escape"){
+      [document.getElementById("bookOverlay"), document.getElementById("shelfOverlay"), document.getElementById("confirmOverlay")]
+        .forEach(closeOverlay);
+    }
+  });
+
+  initApp();
 })();
 </script>
 </body>
-</html> 
-kod bu
+</html>
