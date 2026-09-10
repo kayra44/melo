@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<title>Yaren'in Kitaplığı</title>
+<title>Melike'nin Kitaplığı</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -98,7 +98,10 @@
     flex-shrink:0;
     width: var(--w, 42px);
     height: var(--h, 260px);
-    background: var(--c, #333);
+    background-color: var(--c, #333);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: var(--t, #fff);
     border-radius: 3px 3px 0 0;
     box-shadow: inset -8px 0 16px rgba(0,0,0,.18), inset 2px 0 0 rgba(255,255,255,.06), 2px 4px 10px rgba(0,0,0,.35);
@@ -116,6 +119,10 @@
     white-space:nowrap; padding: 12px 0; letter-spacing:.02em;
     max-height: calc(100% - 16px);
     text-align:center;
+  }
+  
+  .spine.has-cover .spine-title {
+    display: none; /* Eğer fotoğraf varsa yazıyı gizle */
   }
 
   .add-spine{
@@ -168,6 +175,27 @@
   }
   input[type=text]:focus, textarea:focus, select:focus{ outline:1px solid var(--accent); }
   textarea{ min-height:80px; resize:vertical; }
+
+  /* Photo upload styles */
+  .file-input-wrapper {
+    display: flex; gap: 10px; align-items: center; margin-bottom: 16px;
+  }
+  .file-input-wrapper input[type="file"] { display: none; }
+  .btn-upload {
+    flex-grow: 1; background: var(--panel-2); border: 1px dashed var(--panel-border);
+    color: var(--ink); padding: .65rem 1rem; border-radius: 8px;
+    cursor: pointer; font: .9rem var(--sans); text-align: center;
+    transition: border-color .15s, color .15s;
+  }
+  .btn-upload:hover { border-color: var(--accent); color: var(--accent); }
+  .cover-preview {
+    width: 42px; height: 60px; object-fit: cover; border-radius: 4px; display: none;
+    border: 1px solid var(--panel-border);
+  }
+  .detail-cover {
+    width: 100%; max-height: 250px; object-fit: contain;
+    margin-bottom: 16px; border-radius: 8px;
+  }
 
   .swatches{ display:flex; flex-wrap:wrap; gap:9px; margin-bottom:18px; }
   .swatch{
@@ -231,7 +259,7 @@
         <path d="M22 4.5c-2.5-1-5-1.3-8 0v14.5c3-1.3 5.5-1 8 0V4.5Z"/>
       </svg>
       <div class="brand-text">
-        <h1 id="siteTitle" contenteditable="true" spellcheck="false">Yaren'in Kitaplığı</h1>
+        <h1 id="siteTitle" contenteditable="true" spellcheck="false">Melike'nin Kitaplığı</h1>
         <div class="stat-line" id="statLine"></div>
       </div>
     </div>
@@ -302,8 +330,6 @@
   }
 
   // ---------- bulut senkronu (Firebase) ----------
-  // Kendi Firebase projenin bilgilerini aşağıya yapıştır (Firebase konsolu > Proje ayarları > Web uygulaması).
-  // Bu bilgiler yapıştırılmadığı sürece site normal şekilde, sadece bu cihazda çalışmaya devam eder.
   var firebaseConfig = {
     apiKey: "AIzaSyAGq25wKNsGwlgWI66B45bEl93Zq9eKofI",
     authDomain: "kitaplik-c0bfa.firebaseapp.com",
@@ -323,37 +349,26 @@
         id: "shelf-seed",
         label: "2026",
         books: [
-          mkBook("Yüzyıllık Yalnızlık","Gabriel García Márquez","Roman",
-            "", 0, 46),
-          mkBook("Yeni Medyanın Dili","Lev Manovich","Medya Teorisi",
-            "", 1, 40),
-          mkBook("Yaşamak","Yu Hua","Roman",
-            "", 2, 38),
-          mkBook("Yaratma Cesareti","Rollo May","Psikoloji",
-            "", 3, 42),
-          mkBook("Yaratıcı Eylem","Rick Rubin","Kişisel Gelişim",
-            "", 4, 52),
-          mkBook("Yalnızız","Peyami Safa","Roman",
-            "", 5, 44),
-          mkBook("Wigan İskelesi Yolu","George Orwell","Deneme & Gezi",
-            "", 6, 46),
-          mkBook("Vinyl. Album. Cover. Art — The Complete Hipgnosis Catalogue","Aubrey Powell","Sanat & Tasarım",
-            "", 7, 50),
-          mkBook("The Package Design Book","Pentawards / Taschen","Sanat & Tasarım",
-            "", 8, 54)
+          mkBook("Puslu Kıtalar Atlası", "İhsan Oktay Anar", "Roman", "", 0, 46),
+          mkBook("Kapak Kızı", "Ayfer Tunç", "Roman", "", 1, 40),
+          mkBook("Bu Hikaye Senden Uzun Osman", "Aylin Balboa", "Öykü", "", 2, 38),
+          mkBook("Doppler", "Erlend Loe", "Roman", "", 3, 42),
+          mkBook("Muhabbet", "", "Öykü", "", 4, 38),
+          mkBook("Adeliede", "", "Roman", "", 5, 40)
         ]
       }
     ]
   };
 
-  function mkBook(title, author, genre, review, colorIdx, width){
+  function mkBook(title, author, genre, review, colorIdx, width, cover){
     var p = PALETTE[colorIdx % PALETTE.length];
     return {
       id: uid(),
       title: title, author: author || "", genre: genre || "", review: review || "",
       color: p.c, textColor: p.t,
       font: FONT_STYLES[colorIdx % FONT_STYLES.length],
-      width: width, height: 230 + ((colorIdx * 37) % 70)
+      width: width, height: 230 + ((colorIdx * 37) % 70),
+      cover: cover || null
     };
   }
 
@@ -364,7 +379,6 @@
 
   var data = { shelves: [] };
 
-  // ---------- persistence: Firebase varsa bulut + gerçek zamanlı senkron, yoksa bu cihazın hafızası ----------
   async function initApp(){
     if (cloudConfigured){
       try{
@@ -421,6 +435,9 @@
 
     if (data.siteTitle){
       document.getElementById("siteTitle").textContent = data.siteTitle;
+    } else {
+      document.getElementById("siteTitle").textContent = "Melike'nin Kitaplığı";
+      data.siteTitle = "Melike'nin Kitaplığı";
     }
     render();
     if (!cloudReady && !storageOK && !warned){
@@ -553,9 +570,15 @@
     el.className = "spine";
     el.style.setProperty("--w", book.width + "px");
     el.style.setProperty("--h", book.height + "px");
-    el.style.setProperty("--c", book.color);
     el.style.setProperty("--t", book.textColor);
     el.title = book.title + (book.author ? " — " + book.author : "");
+
+    if(book.cover) {
+      el.style.backgroundImage = "url('" + book.cover + "')";
+      el.classList.add("has-cover");
+    } else {
+      el.style.setProperty("--c", book.color);
+    }
 
     var t = document.createElement("div");
     t.className = "spine-title";
@@ -572,6 +595,13 @@
     var overlay = document.getElementById("bookOverlay");
     var modal = document.getElementById("bookModal");
     modal.innerHTML = "";
+    
+    if (book.cover) {
+      var img = document.createElement("img");
+      img.src = book.cover;
+      img.className = "detail-cover";
+      modal.appendChild(img);
+    }
 
     var h = document.createElement("h3");
     h.textContent = book.title;
@@ -645,6 +675,60 @@
     modal.appendChild(sub);
 
     var form = document.createElement("form");
+    
+    // Fotoğraf yükleme alanı
+    var currentCoverData = book && book.cover ? book.cover : null;
+    
+    form.appendChild(fieldLabel("Kitap Fotoğrafı (Opsiyonel)"));
+    var fileWrapper = document.createElement("div");
+    fileWrapper.className = "file-input-wrapper";
+    
+    var fileInput = document.createElement("input");
+    fileInput.type = "file"; fileInput.accept = "image/*"; fileInput.id = "coverInput";
+    
+    var fileLabel = document.createElement("label");
+    fileLabel.htmlFor = "coverInput"; fileLabel.className = "btn-upload";
+    fileLabel.textContent = currentCoverData ? "Fotoğrafı Değiştir" : "Bir Fotoğraf Seç";
+    
+    var previewImg = document.createElement("img");
+    previewImg.className = "cover-preview";
+    if (currentCoverData) {
+      previewImg.src = currentCoverData;
+      previewImg.style.display = "block";
+    }
+
+    // Fotoğrafı seçince boyutu küçültüp (sıkıştırıp) kaydetme işlemi
+    fileInput.onchange = function(e){
+      var file = e.target.files[0];
+      if(!file) return;
+      
+      var reader = new FileReader();
+      reader.onload = function(event){
+        var img = new Image();
+        img.onload = function(){
+          // Firebase limitine takılmaması için fotoğrafı küçült
+          var canvas = document.createElement("canvas");
+          var MAX_HEIGHT = 400; 
+          var scale = MAX_HEIGHT / img.height;
+          canvas.height = MAX_HEIGHT;
+          canvas.width = img.width * scale;
+          var ctx = canvas.getContext("2d");
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          
+          currentCoverData = canvas.toDataURL("image/jpeg", 0.7);
+          previewImg.src = currentCoverData;
+          previewImg.style.display = "block";
+          fileLabel.textContent = "Fotoğraf Yüklendi";
+        };
+        img.src = event.target.result;
+      };
+      reader.readAsDataURL(file);
+    };
+
+    fileWrapper.appendChild(fileLabel);
+    fileWrapper.appendChild(fileInput);
+    fileWrapper.appendChild(previewImg);
+    form.appendChild(fileWrapper);
 
     form.appendChild(fieldLabel("Kitap adı"));
     var titleInput = document.createElement("input");
@@ -683,7 +767,7 @@
     reviewInput.placeholder = "Bu kitap hakkında ne düşünüyorsun?";
     form.appendChild(reviewInput);
 
-    form.appendChild(fieldLabel("Sırt rengi"));
+    form.appendChild(fieldLabel("Sırt rengi (Fotoğraf yoksa görünür)"));
     var swatchRow = document.createElement("div");
     swatchRow.className = "swatches";
     var selectedColor = isEdit ? book.color : PALETTE[Math.floor(Math.random()*PALETTE.length)].c;
@@ -732,6 +816,7 @@
         book.review = reviewInput.value.trim();
         book.color = colorObj.c;
         book.textColor = colorObj.t;
+        book.cover = currentCoverData;
       } else {
         var shelf = data.shelves.find(function(s){ return s.id === shelfId; });
         var idx = shelf.books.length;
@@ -744,8 +829,9 @@
           color: colorObj.c,
           textColor: colorObj.t,
           font: FONT_STYLES[idx % FONT_STYLES.length],
-          width: 34 + Math.floor(Math.random() * 22),
-          height: 220 + Math.floor(Math.random() * 80)
+          width: 38 + Math.floor(Math.random() * 22),
+          height: 220 + Math.floor(Math.random() * 80),
+          cover: currentCoverData
         };
         shelf.books.push(newBook);
       }
@@ -904,7 +990,7 @@
   // ---------- site title persistence ----------
   var titleEl = document.getElementById("siteTitle");
   titleEl.addEventListener("blur", function(){
-    data.siteTitle = titleEl.textContent.trim() || "Kitaplığım";
+    data.siteTitle = titleEl.textContent.trim() || "Melike'nin Kitaplığı";
     titleEl.textContent = data.siteTitle;
     saveData();
   });
