@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kapandı</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c0c0d;
+    --ink:#f3efe6;
+    --ink-dim:#9b968c;
+    --wood-1:#4a3222;
+    --wood-2:#241609;
+    --accent:#d98a5f;
+    --gold:#e8b23a;
+    --serif:'Fraunces', Georgia, serif;
+    --sans:'Work Sans', -apple-system, sans-serif;
+    --hand:'Caveat', cursive;
+  }
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; }
+  body{
+    min-height:100vh;
+    background:
+      radial-gradient(ellipse 900px 500px at 50% -8%, #1c1710 0%, transparent 60%),
+      linear-gradient(180deg, #141210, var(--bg) 55%, #08070a);
+    color:var(--ink);
+    font-family:var(--sans);
+    display:flex; align-items:center; justify-content:center;
+    padding:28px 16px 40px;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  .scene{ width:min(560px, 100%); }
+
+  /* ---------- tabela ---------- */
+  .sign-wrap{ position:relative; display:flex; justify-content:center; margin-bottom:-2px; z-index:3; }
+  .sign{
+    background:linear-gradient(160deg, #5c4029, var(--wood-2) 72%);
+    border-radius:8px 8px 4px 4px;
+    padding:16px 34px 14px;
+    box-shadow:0 18px 40px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.06);
+    text-align:center;
+    transform-origin:50% 0;
+    animation:swing 5s ease-in-out 2.4s infinite;
+  }
+  .sign-title{
+    font:600 1.8rem/1 var(--serif); font-style:italic; color:#f0e6cf; letter-spacing:.01em;
+  }
+  .sign-sub{ font-size:.66rem; letter-spacing:.22em; text-transform:uppercase; color:#b9a47a; margin-top:7px; }
+  @keyframes swing{
+    0%,100%{ transform:rotate(0deg); }
+    25%{ transform:rotate(.7deg); }
+    75%{ transform:rotate(-.7deg); }
+  }
+
+  /* ---------- vitrin ---------- */
+  .storefront{
+    position:relative;
+    background:#17140f;
+    border:1px solid #2b2822;
+    border-radius:6px;
+    padding:16px;
+    box-shadow:0 30px 60px rgba(0,0,0,.6);
+  }
+  .window{
+    position:relative; height:340px; overflow:hidden; border-radius:3px;
+    background:
+      radial-gradient(ellipse at 50% 100%, #2a2216 0%, #0e0c09 70%);
+    border:2px solid #2b2822;
+  }
+  /* içerideki soluk raf silüeti (kepenk inmeden önce kısa süre görünür) */
+  .inside{ position:absolute; inset:0; display:flex; align-items:flex-end; justify-content:center; gap:4px; padding:0 30px 30px; opacity:.55; }
+  .inside i{ display:block; width:20px; border-radius:2px 2px 0 0; background:#3b3224; }
+  .inside .plank{ position:absolute; left:20px; right:20px; bottom:20px; height:10px; border-radius:2px; background:linear-gradient(180deg,var(--wood-1),var(--wood-2)); }
+
+  /* ---------- kepenk ---------- */
+  .shutter{
+    position:absolute; left:0; right:0; top:0;
+    height:0; /* animasyonla 100% olur */
+    background:
+      repeating-linear-gradient(180deg,
+        #8d9298 0px, #b4b9be 5px, #7c8187 9px, #5d6166 12px, #8d9298 13px);
+    box-shadow: inset 0 -10px 20px rgba(0,0,0,.35), 0 8px 24px rgba(0,0,0,.5);
+    animation:drop 2.2s cubic-bezier(.3,.7,.2,1) .5s forwards;
+    cursor:pointer;
+    z-index:2;
+  }
+  .shutter::after{ /* alt tutamak çubuğu */
+    content:""; position:absolute; left:0; right:0; bottom:0; height:22px;
+    background:linear-gradient(180deg,#6b7076,#3d4045);
+    border-top:2px solid #9aa0a6;
+  }
+  .shutter::before{ /* kilit */
+    content:""; position:absolute; left:50%; bottom:5px; transform:translateX(-50%);
+    width:34px; height:12px; border-radius:3px; z-index:2;
+    background:linear-gradient(180deg,#d6b24a,#8a6d1f);
+    box-shadow:0 2px 4px rgba(0,0,0,.5);
+  }
+  @keyframes drop{
+    0%{ height:0; }
+    70%{ height:100%; }
+    82%{ height:94%; }
+    100%{ height:100%; }
+  }
+  .shutter.shake{ animation:shake .45s ease; }
+  @keyframes shake{
+    0%,100%{ transform:translateX(0); }
+    20%{ transform:translateX(-5px); }
+    40%{ transform:translateX(5px); }
+    60%{ transform:translateX(-3px); }
+    80%{ transform:translateX(3px); }
+  }
+
+  /* ---------- kağıt not ---------- */
+  .note{
+    position:absolute; left:50%; top:46%;
+    width:min(300px, 82%);
+    transform:translate(-50%,-50%) rotate(-2.2deg);
+    background:linear-gradient(155deg, #f6ecd2, #e4d3a3 55%, #f1e3bf);
+    color:#2c2212;
+    padding:22px 20px 18px;
+    border-radius:3px;
+    box-shadow:0 14px 30px rgba(0,0,0,.5), inset 0 0 50px rgba(120,90,40,.12);
+    text-align:center;
+    opacity:0;
+    animation:noteIn .6s ease 2.7s forwards;
+    z-index:4;
+  }
+  @keyframes noteIn{ from{ opacity:0; transform:translate(-50%,-44%) rotate(-6deg) scale(.94);} to{ opacity:1; transform:translate(-50%,-50%) rotate(-2.2deg) scale(1);} }
+  .note .tape{
+    position:absolute; top:-11px; width:50px; height:20px;
+    background:rgba(255,255,255,.42); border:1px solid rgba(255,255,255,.55);
+    box-shadow:0 3px 6px rgba(0,0,0,.28);
+  }
+  .note .tape.l{ left:16px; transform:rotate(-8deg); }
+  .note .tape.r{ right:16px; transform:rotate(7deg); }
+  .note h1{
+    font:600 1.55rem/1.15 var(--serif); font-style:italic; margin:4px 0 10px; color:#2c2212;
+  }
+  .note p{
+    font:700 1.35rem/1.25 var(--hand); margin:0; color:#4a3a1c;
+  }
+  .note .stamp{
+    display:inline-block; margin-top:12px;
+    font:600 .64rem var(--sans); letter-spacing:.22em; text-transform:uppercase;
+    color:#9a3a2a; border:2px solid #9a3a2a; padding:5px 10px; border-radius:3px;
+    transform:rotate(-3deg); opacity:.9;
+  }
+
+  /* ---------- altı ---------- */
+  .step{
+    height:14px; margin:0 -16px -16px; border-radius:0 0 6px 6px;
+    background:linear-gradient(180deg,#26231d,#17140f);
+  }
+  .caption{
+    text-align:center; margin-top:26px; min-height:2.6em;
+    font:italic 500 1rem/1.4 var(--serif); color:var(--ink-dim);
+    opacity:0; animation:fade .8s ease 3.3s forwards;
+    transition:opacity .2s;
+  }
+  .caption.swap{ opacity:0 !important; }
+  @keyframes fade{ to{ opacity:1; } }
+  .small{
+    text-align:center; margin-top:6px; font-size:.7rem; color:#5f5a50;
+    opacity:0; animation:fade .8s ease 3.6s forwards;
+  }
+
+  @media (max-width:480px){
+    .window{ height:300px; }
+    .sign{ padding:14px 22px 12px; }
+    .sign-title{ font-size:1.5rem; }
+    .note h1{ font-size:1.3rem; }
+  }
+  @media (prefers-reduced-motion:reduce){
+    .shutter{ animation-duration:.01s; animation-delay:0s; }
+    .note,.caption,.small{ animation-delay:0s; }
+    .sign{ animation:none; }
+  }
+</style>
+</head>
+<body>
+<div class="scene">
+
+  <div class="sign-wrap">
+    <div class="sign">
+      <div class="sign-title">Kitaplık</div>
+      <div class="sign-sub">Est. çok önce</div>
+    </div>
+  </div>
+
+  <div class="storefront">
+    <div class="window">
+      <div class="inside" aria-hidden="true">
+        <span class="plank"></span>
+        <i style="height:70px"></i><i style="height:96px"></i><i style="height:60px"></i>
+        <i style="height:88px"></i><i style="height:74px"></i><i style="height:102px"></i>
+        <i style="height:66px"></i><i style="height:90px"></i>
+      </div>
+
+      <div class="shutter" id="shutter" role="img" aria-label="Kapalı kepenk"></div>
+
+      <div class="note">
+        <div class="tape l"></div><div class="tape r"></div>
+        <h1>İflas ettik,<br>kapattık.</h1>
+        <p>Geçmiş olsun bize.<br>Teşekkürler, iyi günler.</p>
+        <span class="stamp">Bir daha açılmaz</span>
+      </div>
+    </div>
+    <div class="step"></div>
+  </div>
+
+  <div class="caption" id="caption">Kepenk indi.</div>
+  <div class="small">kepenke tıklayabilirsin, ama boşuna</div>
+
+</div>
+
+<script>
+(function(){
+  var shutter = document.getElementById("shutter");
+  var caption = document.getElementById("caption");
+  var lines = [
+    "Kepenk indi.",
+    "Açılmıyor, anahtar kayıp.",
+    "Stok kalmadı, tadilat da yok.",
+    "Devren satılık değil.",
+    "Gerçekten kapalı.",
+    "Başka dükkânlara bak, hayırlısı."
+  ];
+  var i = 0;
+
+  shutter.addEventListener("click", function(){
+    shutter.classList.remove("shake");
+    void shutter.offsetWidth;
+    shutter.classList.add("shake");
+    i = (i + 1) % lines.length;
+    caption.classList.add("swap");
+    setTimeout(function(){
+      caption.textContent = lines[i];
+      caption.classList.remove("swap");
+    }, 180);
+  });
+  shutter.addEventListener("animationend", function(e){
+    if (e.animationName === "shake"){ shutter.classList.remove("shake"); }
+  });
+})();
+</script>
+</body>
+</html>
